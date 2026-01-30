@@ -9,6 +9,7 @@ O projeto consome dados da **AwesomeAPI**, processa as informações de Dólar (
 - **Extração (Extract):** Conexão via `requests` com API pública de economia.
 - **Transformação (Transform):** Limpeza e formatação de dados JSON e conversão de tipos.
 - **Carregamento (Load):** Salvamento automático dos dados em arquivo `moedas.csv` com verificação de cabeçalhos.
+- **Automação:** O script roda em loop infinito, atualizando os dados a cada 30 segundos.
 - **Log Temporal:** Registro exato da data e hora (`timestamp`) de cada coleta.
 
 ## 🛠️ Tecnologias Utilizadas
@@ -17,7 +18,7 @@ O projeto consome dados da **AwesomeAPI**, processa as informações de Dólar (
 - **Requests** (Consumo de API HTTP)
 - **CSV** (Manipulação de planilhas)
 - **Datetime** (Manipulação temporal)
-
+- **Time & OS** (Controle de fluxo e sistema)
 
 ## 📦 Como rodar o projeto
 
@@ -33,3 +34,22 @@ cd monitor-cambial-etl
 
 # Instale as dependências
 pip install requests
+
+Executando o Robô 🤖
+
+Para iniciar o monitoramento contínuo:Bashpython monitor_cambio.py
+
+O script limpará a tela e atualizará as cotações a cada 30 segundos.
+⚠️ Como parar: O script roda em loop infinito. Para encerrar a execução, clique no terminal e pressione CTRL + C.
+
+📊 Exemplo de Saída (CSV)
+O arquivo gerado segue este padrão:
+data,nome,valor
+30/01/2026 14:30:15,Dólar Americano/Real Brasileiro,5.75
+30/01/2026 14:30:15,Euro/Real Brasileiro,6.20
+
+🔜 Próximos Passos (Roadmap)
+[x] Implementar automação (Loop infinito a cada 30s). ✅
+[ ] Criar tratamento de erros para queda de internet (Try/Except).
+[ ] Gerar gráficos simples com a biblioteca matplotlib.
+👨‍💻 AutorDesenvolvido por Alex Roberto durante estudos de Python e Integração de APIs.

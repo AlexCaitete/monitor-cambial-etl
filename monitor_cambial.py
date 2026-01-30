@@ -1,9 +1,18 @@
 import requests
+import os
 import csv
 from datetime import datetime
+import time
+
 
 ARQUIVO = 'moedas.csv'
 
+
+def limpar_tela():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 
 def verificar_arquivo_existe():
@@ -61,4 +70,8 @@ def dados_moedas():
 
 # 5. O BOTÃO DE LIGAR (Execução Principal)
 if __name__ == "__main__":
-    dados_moedas()
+    while True:
+        dados_moedas()
+
+        print("💤 Pausa de 30 segundos... (Não feche)")
+        time.sleep(30)
